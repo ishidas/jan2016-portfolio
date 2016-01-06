@@ -10,6 +10,7 @@ nav {
 
 nav ul {
   display: inline-flex;
+  list-style: none;
 }
 
 nav ul li {

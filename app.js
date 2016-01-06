@@ -9,17 +9,28 @@ function Schools (sth){
   this.status = sth.status
 }
 
+//Generating School Info
 Schools.prototype.toHTML = function (){
   var $newContentBox = $('article.edutemplate').clone();
-  // var name = $newContentBox.data('schoolName',this.schoolName);
-  $('#eduname').append(this.schoolName);
-  $newContentBox.append('<p>'+this.degree+'</p>'+ '<p>'+this.major+'</p>'+'<p>'+ this.status +'</p>'+'<hr>');
-
-  // $newContentBox.append('hr');
+  $newContentBox.find('h4').html('School Name: '+ this.schoolName).attr('data-name','eduSchoolName');
   $newContentBox.removeClass('edutemplate');
+  $newContentBox.append('<p data-major="eduMajor">Major: '+this.major+'</p>');
+  $newContentBox.append('<p data-degree="eduDegree">Degree: '+this.degree+'</p>');
+  $newContentBox.append('<p data-status="eduStatus">Status: '+ this.status +'</p>');
+  $newContentBox.append('<address>'+'<a href="">'+'School Web Site Link'+'</a>'+'</address>');
+  $newContentBox.find('a').attr('href',this.schoolLink);
+  $newContentBox.append('<hr>');
   return $newContentBox;
 };
 
+//add Tabs
+$(document).on('click','.nav-section',function(event){
+  event.preventDefault();
+
+})
+
+
+//pushing school objs to school array
 school.forEach(function(obj){
   schoolObj.push(new Schools(obj));
 })
