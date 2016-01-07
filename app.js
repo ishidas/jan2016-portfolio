@@ -23,11 +23,6 @@ Schools.prototype.toHTML = function (){
   return $newContentBox;
 };
 
-//add Tabs
-$(document).on('click','.nav-section',function(event){
-  event.preventDefault();
-
-})
 
 
 //pushing school objs to school array
@@ -38,3 +33,16 @@ school.forEach(function(obj){
 schoolObj.forEach(function(a){
   $('#edu').append(a.toHTML())
 });
+
+//add Tabs
+var $sectionHome = $('.nav-section');
+console.log($sectionHome);
+$sectionHome.on('click','li',function(event){
+  event.preventDefault();
+  console.log(event.target);
+  if($(this)){
+    $sectionHome.hide();
+  } else {
+    $sectionHome.fadeIn();
+  }
+})
