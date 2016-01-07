@@ -37,11 +37,12 @@ schoolObj.forEach(function(a){
 //add Tabs
 var $sectionHome = $('.nav-section');
 console.log($sectionHome);
-$sectionHome.on('click','li',function(event){
-  event.preventDefault();
-  if($sectionHome.data('content','hometab')){
-  $('#edu').data('content','edusection').hide();
-}
 
-
-})
+  $sectionHome.on('click','li',function(event){
+    event.preventDefault();
+    $('section').hide();
+    $('#' + $(this).data('content')).show();
+  console.log($(this).data('content'));
+    // $('.' + $(this).data('content')).show();
+    // $('#'+ $(this).data('content')).show();
+  })
