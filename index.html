@@ -1,33 +1,44 @@
-<DOCTYPE html>
+<!DOCTYPE html>
   <head>
-    <link rel="stylesheet" type="text/css" href="style.css">
-
+    <meta charset="UTF-8">
+    <title>Portfolio</title>
+    <meta name="viewport" content="width=device-width", initial-scale="1">
+    <link rel="stylesheet" href="vendor/normalize.css">
+    <link rel="stylesheet" href="vendor/skeleton.css">
+    <link rel="stylesheet" href="iconfont.css">
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/layout.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body>
-    <header>
-      <h1>Sawako Ishida</h1>
-      <nav>
-        <ul>
-          <li><a>Home</a></li>
-          <li><a>About</a></li>
-          <li><a>Gallery</a></li>
+    <header class="twelve columns">
+      <h1 class="twelve columns">Sawako Ishida</h1>
+      <nav class="nav-section">
+        <img class="one columns offset-by-eleven" class="hambergur-menu" src="img/hamburger.png" alt="hamburger menu">
+        <ul class="twelve columns">
+          <li class="icon-home" data-content="home"><a>Home</a></li>
+          <li class="icon-pacman" data-content="edu"><a>About</a></li>
+          <li data-content="gallerytab"><a>Gallery</a></li>
         </ul>
       </nav>
       <hr>
     </header>
-    <section id="edu">
+    <section id="edu" data-content="edusection">
       <article class="edutemplate">
         <h4 id="eduname"></h4>
-          <addrss><a href="">School Web Site Link</a></address>
       </article>
+    </section>
+    <section id="home">
+      <p>Bonbon jelly-o gingerbread lemon drops. Danish chocolate cake marshmallow fruitcake jelly. Wafer chocolate bar marzipan soufflé sweet roll muffin ice cream fruitcake. Toffee toffee lemon drops biscuit marshmallow candy canes toffee candy canes. Muffin lemon drops cake. Cupcake wafer pudding cheesecake jelly-o pie sweet cotton candy sugar plum. Cake marshmallow liquorice wafer chupa chups icing apple pie. Sweet roll gummies tootsie roll croissant halvah candy canes cake oat cake. Pie jelly-o marshmallow.
+Cheesecake lollipop tootsie roll sugar plum macaroon macaroon chocolate bar wafer. Apple pie fruitcake sugar plum. Liquorice pie biscuit tart croissant. Jujubes croissant danish marzipan chocolate pie halvah. Cake danish soufflé cotton candy muffin jujubes. Jelly-o brownie jujubes sugar plum cheesecake icing sweet roll. Bear claw chocolate cake apple pie cotton candy chocolate cake. Fruitcake macaroon tiramisu icing tart brownie cotton candy bear claw biscuit. Dragée sesame snaps pastry.</p>
     </section>
     <!-- <article class="jobtemplate">
     </article> -->
     <footer>
       <ul>
-        <li><a href="https://github.com/ishidas">GitHub</a></li>
-        <li><a href="https://www.pinterest.com/sawa1134/">Pinterest</a></li>
-        <li><a href="https://www.linkedin.com/in/sawako-ishida-354bba101">LinkedIn</a></li>
+        <li class="icon-github"><a href="https://github.com/ishidas">GitHub</a></li>
+        <li class="icon-pinterest"><a href="https://www.pinterest.com/sawa1134/">Pinterest</a></li>
+        <li class="icon-linkedin"><a href="https://www.linkedin.com/in/sawako-ishida-354bba101">LinkedIn</a></li>
       </ul>
     </footer>
     <script src="portfolioinfo.js"></script>
