@@ -39,10 +39,9 @@ var $sectionHome = $('.nav-section');
 console.log($sectionHome);
 $sectionHome.on('click','li',function(event){
   event.preventDefault();
-  console.log(event.target);
-  if($(this)){
-    $sectionHome.hide();
-  } else {
-    $sectionHome.fadeIn();
-  }
+  if($sectionHome.data('content','hometab')){
+  $('#edu').data('content','edusection').hide();
+}
+
+
 })
