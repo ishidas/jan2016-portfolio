@@ -6,7 +6,7 @@ nav {
 }
 
 nav ul {
-  display: inline-block;
+  /*display: inline-block;*/
   list-style: none;
   max-width: 100%;
 }

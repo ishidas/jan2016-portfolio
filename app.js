@@ -46,6 +46,7 @@ console.log($sectionHome);
 
   })
 $('.nav-section img').on('click touchStart',function(){
+  if($(window).width() < 640){
   $('.nav-section').find('ul').slideToggle();
-
+} else { $('.nav-section').show(); }
 })
