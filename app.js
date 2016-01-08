@@ -45,3 +45,7 @@ console.log($sectionHome);
   console.log($(this).data('content'));
 
   })
+$('.nav-section img').on('click touchStart',function(){
+  $('.nav-section').find('ul').slideToggle();
+
+})

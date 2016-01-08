@@ -6,9 +6,11 @@ nav {
 }
 
 nav ul {
-  display: inline;
+  display: inline-block;
   list-style: none;
+  max-width: 100%;
 }
+
 
 body {
   text-align: center;
