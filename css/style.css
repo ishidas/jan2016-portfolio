@@ -15,7 +15,7 @@ footer ul li {
     display: none;
   }
   .nav-section ul {
-    display: block;
+    display: block !important;
   }
   .nav-section li {
     display: inline-block;
