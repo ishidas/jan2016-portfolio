@@ -24,7 +24,6 @@ Schools.prototype.toHTML = function (){
 };
 
 
-
 //pushing school objs to school array
 school.forEach(function(obj){
   schoolObj.push(new Schools(obj));
@@ -34,15 +33,15 @@ schoolObj.forEach(function(a){
   $('#edu').append(a.toHTML())
 });
 
-//add Tabs
+
+$('section[id!="home"]').click().hide();
+//add Tabs and 'Click' events
 var $sectionHome = $('.nav-section');
 console.log($sectionHome);
-
-  $sectionHome.on('click','li',function(event){
+  $sectionHome.on('click touchStart','li',function(event){
     event.preventDefault();
     $('section').hide();
     $('#' + $(this).data('content')).show();
   console.log($(this).data('content'));
-    // $('.' + $(this).data('content')).show();
-    // $('#'+ $(this).data('content')).show();
+
   })

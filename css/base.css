@@ -16,9 +16,7 @@ body {
   color: #264954;
 }
 
-img {
-  display: inline-block;
-  max-width: 2em;
-  max-height: 2em;
+section img {
+  max-width: 100%;
 
 }

@@ -2,3 +2,10 @@ footer ul li {
   list-style: none;
   display: inline-block;
 }
+
+#icon-burger {
+  display: inline-block;
+  max-width: 2em;
+  max-height: 2em;
+
+}
