@@ -1,6 +1,6 @@
 var schoolObj = [];
-// var jobObj = [];
-
+var jobObj = [];
+console.log(jobObj);
 function Schools (sth){
   this.schoolName = sth.schoolName;
   this.degree = sth.degree;
@@ -23,16 +23,36 @@ Schools.prototype.toHTML = function (){
   return $newContentBox;
 };
 
+function WorkExp (opt){
+  this.companyName = opt.companyName;
+  this.companyLink = opt.companyLink;
+  this.experience = opt.experience;
+}
 
+WorkExp.prototype.displayHtml = function(){
+  var appTemplate = $('#entry-template').text();
+  console.log(appTemplate);
+  var compileTemplate = Handlebars.compile(appTemplate);
+  console.log(compileTemplate);
+  return compileTemplate(this);
+};
 //pushing school objs to school array
 school.forEach(function(obj){
   schoolObj.push(new Schools(obj));
-})
-
-schoolObj.forEach(function(a){
-  $('#edu').append(a.toHTML())
 });
 
+schoolObj.forEach(function(a){
+  $('#edu').append(a.toHTML());
+});
+
+//pushing job objs to jobObj array
+job.forEach(function(obj){
+  jobObj.push(new WorkExp(obj));
+});
+
+jobObj.forEach(function(b){
+  $('#workjob').append(b.displayHtml());
+})
 
 $('section[id!="home"]').click().hide();
 //add Tabs and 'Click' events
@@ -42,6 +62,7 @@ console.log($sectionHome);
     event.preventDefault();
     $('section').hide();
     $('#' + $(this).data('content')).show();
+    $('.' + $(this).data('content')).show();
   console.log($(this).data('content'));
 
   })

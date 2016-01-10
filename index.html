@@ -3,12 +3,20 @@
     <meta charset="UTF-8">
     <title>Portfolio</title>
     <meta name="viewport" content="width=device-width", initial-scale="1">
+    <link href='https://fonts.googleapis.com/css?family=Rosario:400,400italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="vendor/normalize.css">
     <link rel="stylesheet" href="vendor/skeleton.css">
     <link rel="stylesheet" href="iconstyles.css">
     <link rel="stylesheet" type="text/css" href="css/base.css">
     <link rel="stylesheet" type="text/css" href="css/layout.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script id="entry-template" type="text/x-handlebars-template">
+      <div class="work">
+        <h4 id="eduname">{{companyName}}</h4>
+        <address><a href="{{companyLink}}">{{companyName}}</a></address>
+        <p>{{{experience}}}</p>
+      </div>
+    </script>
   </head>
   <body>
     <header class="twelve columns">
@@ -19,6 +27,7 @@
           <li class="icon-home" data-content="home"><a>Home</a></li>
           <li class="icon-pacman" data-content="edu"><a>About</a></li>
           <li class="icon-camera" data-content="gallerytab"><a>Gallery</a></li>
+          <li data-content="workjob"><a>Work Experiences</a></li>
         </ul>
       </nav>
       <hr>
@@ -36,6 +45,7 @@
 Cheesecake lollipop tootsie roll sugar plum macaroon macaroon chocolate bar wafer. Apple pie fruitcake sugar plum. Liquorice pie biscuit tart croissant. Jujubes croissant danish marzipan chocolate pie halvah. Cake danish soufflé cotton candy muffin jujubes. Jelly-o brownie jujubes sugar plum cheesecake icing sweet roll. Bear claw chocolate cake apple pie cotton candy chocolate cake. Fruitcake macaroon tiramisu icing tart brownie cotton candy bear claw biscuit. Dragée sesame snaps pastry.</p>
     </section>
     <section id="photos" class="photo-gallery"></section>
+    <section id="workjob"></section>
     <!-- <article class="jobtemplate">
     </article> -->
     <footer>
@@ -47,6 +57,7 @@ Cheesecake lollipop tootsie roll sugar plum macaroon macaroon chocolate bar wafe
     </footer>
     <script src="portfolioinfo.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
