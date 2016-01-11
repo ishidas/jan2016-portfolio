@@ -1,13 +1,25 @@
-footer ul li {
-  list-style: none;
-  display: inline-block;
-}
-
 #icon-burger {
   display: inline-block;
   max-width: 2em;
   max-height: 2em;
+}
 
+section img {
+  max-width: 100%;
+}
+
+ul li {
+  margin-right: 2em;
+}
+
+footer ul {
+  margin-bottom: 0%;
+}
+
+footer ul li {
+  list-style: none;
+  display: inline-block;
+  margin: 2em;
 }
 
 @media only screen and (min-width: 640px) {
@@ -16,6 +28,7 @@ footer ul li {
   }
   .nav-section ul {
     display: block !important;
+    padding-top: 2.5em;
   }
   .nav-section li {
     display: inline-block;
@@ -26,5 +39,8 @@ footer ul li {
 @media only screen and (max-width: 640px) {
   .nav-section ul {
     display: none;
+  }
+  header {
+    background-color: rgba(255, 255, 255, 0.33);
   }
 }
