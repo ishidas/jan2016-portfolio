@@ -14,12 +14,10 @@ Schools.prototype.toHTML = function (){
   var $newContentBox = $('article.edutemplate').clone();
   $newContentBox.find('h4').html('School Name: '+ this.schoolName).attr('data-name','eduSchoolName');
   $newContentBox.removeClass('edutemplate');
-  $newContentBox.append('<p data-major="eduMajor">Major: '+this.major+'</p>');
-  $newContentBox.append('<p data-degree="eduDegree">Degree: '+this.degree+'</p>');
-  $newContentBox.append('<p data-status="eduStatus">Status: '+ this.status +'</p>');
-  $newContentBox.append('<address>'+'<a href="">'+'School Web Site Link'+'</a>'+'</address>');
-  $newContentBox.find('a').attr('href',this.schoolLink);
-  $newContentBox.append('<hr>');
+  $newContentBox.find('[data-major] span').text(this.major);
+  $newContentBox.find('[data-degree] span').text(this.degree);
+  $newContentBox.find('[data-status] span').text(this.status);
+  $newContentBox.find('.edutemplate address a').attr('href',this.schoolLink);
   return $newContentBox;
 };
 
@@ -36,23 +34,47 @@ WorkExp.prototype.displayHtml = function(){
   console.log(compileTemplate);
   return compileTemplate(this);
 };
+
+//setting portfolioingo in localStorage
+$.getJSON('portfolioinfo.json',function(data){
+  localStorage.setItem('school',JSON.stringify(data));
+  if(localStorage.school){
+    console.log('localStorage.school does exist');
+    var getBackShoolObj = JSON.parse(localStorage.getItem('school'));
+    console.log(getBackShoolObj);
+    for(var i = 0; i < getBackShoolObj.length; i++){
+    schoolObj.push(getBackShoolObj[i]);
+    }
+  } else {
+    console.log('You don\' have this data in localStorage');
+  }
+
+})
 //pushing school objs to school array
-school.forEach(function(obj){
-  schoolObj.push(new Schools(obj));
-});
+// school.forEach(function(obj){
+//   schoolObj.push(new Schools(obj));
+// });
 
 schoolObj.forEach(function(a){
-  $('#edu').append(a.toHTML());
+  console.log('here');
+  var $newContentBox = $('article.edutemplate').clone();
+  $newContentBox.find('h4').html('School Name: '+ schoolObj.a.schoolName).attr('data-name','eduSchoolName');
+  $newContentBox.removeClass('edutemplate');
+  $newContentBox.find('[data-major] span').text(schoolObj.a.major);
+  $newContentBox.find('[data-degree] span').text(schoolObj.a.degree);
+  $newContentBox.find('[data-status] span').text(schoolObj.a.status);
+  $newContentBox.find('.edutemplate address a').attr('href',schoolObj.a.schoolLink);
+  return $newContentBox;
 });
 
 //pushing job objs to jobObj array
-job.forEach(function(obj){
-  jobObj.push(new WorkExp(obj));
-});
+// job.forEach(function(obj){
+//   jobObj.push(new WorkExp(obj));
+// });
 
-jobObj.forEach(function(b){
-  $('#workjob').append(b.displayHtml());
-})
+// jobObj.forEach(function(b){
+//   $('#workjob').append(b.displayHtml());
+// })
 
 $('section[id!="home"]').click().hide();
 //add Tabs and 'Click' events
