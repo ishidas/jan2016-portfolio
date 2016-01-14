@@ -1,6 +1,7 @@
 var schoolObj = [];
 var jobObj = [];
-console.log(jobObj);
+
+
 function Schools (sth){
   this.schoolName = sth.schoolName;
   this.degree = sth.degree;
@@ -12,7 +13,7 @@ function Schools (sth){
 //Generating School Info
 Schools.prototype.toHTML = function (){
   var $newContentBox = $('article.edutemplate').clone();
-  $newContentBox.find('h4').html('School Name: '+ this.schoolName).attr('data-name','eduSchoolName');
+  $newContentBox.find('h4').html('School Name: '+ schoolObj.a.schoolName).attr('data-name','eduSchoolName');
   $newContentBox.removeClass('edutemplate');
   $newContentBox.find('[data-major] span').text(this.major);
   $newContentBox.find('[data-degree] span').text(this.degree);
@@ -29,44 +30,65 @@ function WorkExp (opt){
 
 WorkExp.prototype.displayHtml = function(){
   var appTemplate = $('#entry-template').text();
-  console.log(appTemplate);
   var compileTemplate = Handlebars.compile(appTemplate);
-  console.log(compileTemplate);
   return compileTemplate(this);
 };
 
+// var school = new Schools({
+//   schoolName: $('[data-name] span').val,
+//   major: $('[data-major] span').val,
+//   degree: $('[data-degree] span').val,
+//   status: $('[data-status] span').val,
+//   schoolLink: $('.edutemplate address a').attr('href', this.schoolLink)
+// })
 //setting portfolioingo in localStorage
-$.getJSON('portfolioinfo.json',function(data){
-  localStorage.setItem('school',JSON.stringify(data));
-  if(localStorage.school){
-    console.log('localStorage.school does exist');
-    var getBackShoolObj = JSON.parse(localStorage.getItem('school'));
-    console.log(getBackShoolObj);
-    for(var i = 0; i < getBackShoolObj.length; i++){
-    schoolObj.push(getBackShoolObj[i]);
-    }
+Schools.update = function(){
+$.getJSON('portfolioinfo.json',function(data, message, xhr){
+  //setting data into localStorage
+  localStorage.setItem('schoolRaw',JSON.stringify(data));
+  var saveTag = localStorage.eTag;
+  saveTag = xhr.getResponseHeader('eTag');
+  console.log(localStorage.eTag);
+  if(saveTag !== xhr.getResponseHeader('eTag')){
+    var getBackShoolObj = JSON.parse(localStorage.getItem('schoolRaw'));
+
   } else {
-    console.log('You don\' have this data in localStorage');
+        var getBackShoolObj = JSON.parse(localStorage.getItem('schoolRaw'));
+        getBackShoolObj.forEach(function(a){
+          var arrayLength = schoolObj.length;
+          schoolObj.push(new Schools(a));
+        console.log(new Schools(a));
+        if(schoolObj.length >= arrayLength){
+          renderToHtml();
+        }
+       })
   }
 
-})
+  })
+}
+Schools.update();
+
 //pushing school objs to school array
 // school.forEach(function(obj){
 //   schoolObj.push(new Schools(obj));
 // });
 
-schoolObj.forEach(function(a){
-  console.log('here');
-  var $newContentBox = $('article.edutemplate').clone();
-  $newContentBox.find('h4').html('School Name: '+ schoolObj.a.schoolName).attr('data-name','eduSchoolName');
-  $newContentBox.removeClass('edutemplate');
-  $newContentBox.find('[data-major] span').text(schoolObj.a.major);
-  $newContentBox.find('[data-degree] span').text(schoolObj.a.degree);
-  $newContentBox.find('[data-status] span').text(schoolObj.a.status);
-  $newContentBox.find('.edutemplate address a').attr('href',schoolObj.a.schoolLink);
-  return $newContentBox;
-});
 
+function renderToHtml(){
+schoolObj.forEach(function(a){
+  console.log(a.schoolName);
+  var $newContentBox = $('article.edutemplate').clone();
+  $newContentBox.find('#eduname').text(a.schoolName);
+  $newContentBox.find('[data-major] span').text(a.major);
+  $newContentBox.find('[data-degree] span').text(a.degree);
+  $newContentBox.find('[data-status] span').text(a.status);
+  $newContentBox.find('.edutemplate address a').attr('href',a.schoolLink);
+  $newContentBox.removeClass('edutemplate');
+  console.log($newContentBox);
+  $('#edu').append($newContentBox);
+
+});
+}
 //pushing job objs to jobObj array
 // job.forEach(function(obj){
 //   jobObj.push(new WorkExp(obj));
@@ -79,7 +101,6 @@ schoolObj.forEach(function(a){
 $('section[id!="home"]').click().hide();
 //add Tabs and 'Click' events
 var $sectionHome = $('.nav-section');
-console.log($sectionHome);
   $sectionHome.on('click touchStart','li',function(event){
     event.preventDefault();
     $('section').hide();
