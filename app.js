@@ -72,41 +72,6 @@ checkUpdate();
 
 
 
-  //
-  // } else {
-  //   //render regularly
-  //   getBackShoolObj = JSON.parse(localStorage.getItem('schoolRaw'));
-  //   getBackShoolObj.forEach(function(a){
-  //     var arrayLength = schoolObj.length;
-  //     schoolObj.push(new Schools(a));
-  //     console.log(new Schools(a));
-  //     if(schoolObj.length >= arrayLength)
-  //     renderToHtml();
-  //
-  // }
-
-
-//     var getBackShoolObj = JSON.parse(localStorage.getItem('schoolRaw'));
-
-  // })
-// }
-// Schools.update();
-
-//pushing school objs to school array
-// school.forEach(function(obj){
-//   schoolObj.push(new Schools(obj));
-// });
-// function getSchoolArray() {
-//     getBackShoolObj.forEach(function(a){
-//       var arrayLength = schoolObj.length;
-//       schoolObj.push(new Schools(a));
-//       console.log(new Schools(a));
-//       if(schoolObj.length >= arrayLength){
-//       renderToHtml();
-//       }
-//     })
-// }
-
 function renderToHtml(){
 schoolObj.forEach(function(a){
   var $newContentBox = $('article.edutemplate').clone();
@@ -131,21 +96,6 @@ function renderLocalSchoolData () {
   renderToHtml();
 }
 
-
-//keep working here
-console.log(schoolObj)
-function footerFunCompile () {
-footerFun.reduce(function(prev, curr){
-  console.log(prev + curr);
-  return prev + curr;
-},[])
-.map(function(x){
-  console.log(x);
-  var total = $('#footer-fun').text(x);
-})
-}
-
-console.log(footerFun);
 //pushing job objs to jobObj array
 // job.forEach(function(obj){
 //   jobObj.push(new WorkExp(obj));
