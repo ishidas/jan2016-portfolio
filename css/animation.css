@@ -1,0 +1,21 @@
+.petals1 {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin: 15px;
+  border-top-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  background-color: rgba(131, 193, 89, 0.6);
+  z-index: 9999999;
+/*-webkit-animation-fill-mode: forward;*/
+-webkit-animation-name: ride;
+-webkit-animation-duration: 18s;
+-webkit-animation-timing-function: ease-in;
+-webkit-animation-iteration-count: 1;
+}
+
+@-webkit-keyframes ride {
+  0%{-webkit-transform: translate(-50px,-200px) rotate(80deg);}
+  /*50%{-webkit-transform: translate(150px,100px) rotate(40deg);}*/
+  100%{-webkit-transform: translate(300px, 1700px) ;}
+}
