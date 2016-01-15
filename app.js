@@ -34,50 +34,80 @@ WorkExp.prototype.displayHtml = function(){
   return compileTemplate(this);
 };
 
-// var school = new Schools({
-//   schoolName: $('[data-name] span').val,
-//   major: $('[data-major] span').val,
-//   degree: $('[data-degree] span').val,
-//   status: $('[data-status] span').val,
-//   schoolLink: $('.edutemplate address a').attr('href', this.schoolLink)
-// })
+
 //setting portfolioingo in localStorage
-Schools.update = function(){
-$.getJSON('portfolioinfo.json',function(data, message, xhr){
-  //setting data into localStorage
-  localStorage.setItem('schoolRaw',JSON.stringify(data));
-  var saveTag = localStorage.eTag;
-  saveTag = xhr.getResponseHeader('eTag');
-  console.log(localStorage.eTag);
-  if(saveTag !== xhr.getResponseHeader('eTag')){
-    var getBackShoolObj = JSON.parse(localStorage.getItem('schoolRaw'));
 
-  } else {
-        var getBackShoolObj = JSON.parse(localStorage.getItem('schoolRaw'));
-        getBackShoolObj.forEach(function(a){
-          var arrayLength = schoolObj.length;
-          schoolObj.push(new Schools(a));
-        console.log(new Schools(a));
-        if(schoolObj.length >= arrayLength){
-          renderToHtml();
-        }
-       })
-  }
-
-  })
+function update (){
+  $.getJSON('portfolioinfo.json',function(data, message, xhr){
+    localStorage.schoolRaw = JSON.stringify(data);
+    localStorage.etag = xhr.getResponseHeader('eTag');
+    console.log(localStorage.etag);
+    renderLocalSchoolData();
+    });
+      renderToHtml();
 }
-Schools.update();
+
+
+function checkUpdate (){
+  $.ajax({
+          type: 'HEAD',
+          url:  'portfolioinfo.json',
+          complete: function(xhr){
+            var eTag = xhr.getResponseHeader('eTag');
+            console.log(eTag);
+            if(localStorage.etag !== eTag){
+              console.log(eTag);
+              console.log('here')
+              update();
+            } else {
+              console.log('Here2');
+              renderLocalSchoolData();
+            }
+          }
+  });
+}
+checkUpdate();
+
+
+  //
+  // } else {
+  //   //render regularly
+  //   getBackShoolObj = JSON.parse(localStorage.getItem('schoolRaw'));
+  //   getBackShoolObj.forEach(function(a){
+  //     var arrayLength = schoolObj.length;
+  //     schoolObj.push(new Schools(a));
+  //     console.log(new Schools(a));
+  //     if(schoolObj.length >= arrayLength)
+  //     renderToHtml();
+  //
+  // }
+
+
+//     var getBackShoolObj = JSON.parse(localStorage.getItem('schoolRaw'));
+
+  // })
+// }
+// Schools.update();
 
 //pushing school objs to school array
 // school.forEach(function(obj){
 //   schoolObj.push(new Schools(obj));
 // });
-
+// function getSchoolArray() {
+//     getBackShoolObj.forEach(function(a){
+//       var arrayLength = schoolObj.length;
+//       schoolObj.push(new Schools(a));
+//       console.log(new Schools(a));
+//       if(schoolObj.length >= arrayLength){
+//       renderToHtml();
+//       }
+//     })
+// }
 
 function renderToHtml(){
 schoolObj.forEach(function(a){
-  console.log(a.schoolName);
   var $newContentBox = $('article.edutemplate').clone();
+  console.log(a.schoolName);
   $newContentBox.find('#eduname').text(a.schoolName);
   $newContentBox.find('[data-major] span').text(a.major);
   $newContentBox.find('[data-degree] span').text(a.degree);
@@ -86,8 +116,17 @@ schoolObj.forEach(function(a){
   $newContentBox.removeClass('edutemplate');
   console.log($newContentBox);
   $('#edu').append($newContentBox);
-
 });
+}
+
+function renderLocalSchoolData () {
+  var getBackShoolObj = JSON.parse(localStorage.getItem('schoolRaw'));
+  getBackShoolObj.forEach(function(a){
+    var arrayLength = schoolObj.length;
+    schoolObj.push(new Schools(a));
+    console.log(new Schools(a));
+  });
+  renderToHtml();
 }
 //pushing job objs to jobObj array
 // job.forEach(function(obj){
