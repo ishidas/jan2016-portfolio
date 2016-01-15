@@ -1,6 +1,8 @@
+(function(module){
+
 var schoolObj = [];
 var jobObj = [];
-
+var footerFun = [1,9,8,4,0,5,0,8];
 
 function Schools (sth){
   this.schoolName = sth.schoolName;
@@ -69,6 +71,7 @@ function checkUpdate (){
 checkUpdate();
 
 
+
   //
   // } else {
   //   //render regularly
@@ -121,13 +124,28 @@ schoolObj.forEach(function(a){
 
 function renderLocalSchoolData () {
   var getBackShoolObj = JSON.parse(localStorage.getItem('schoolRaw'));
-  getBackShoolObj.forEach(function(a){
-    var arrayLength = schoolObj.length;
-    schoolObj.push(new Schools(a));
-    console.log(new Schools(a));
-  });
+  getBackShoolObj.map(function(x){
+    schoolObj.push(x);
+    console.log(schoolObj);
+  })
   renderToHtml();
 }
+
+
+//keep working here
+console.log(schoolObj)
+function footerFunCompile () {
+footerFun.reduce(function(prev, curr){
+  console.log(prev + curr);
+  return prev + curr;
+},[])
+.map(function(x){
+  console.log(x);
+  var total = $('#footer-fun').text(x);
+})
+}
+
+console.log(footerFun);
 //pushing job objs to jobObj array
 // job.forEach(function(obj){
 //   jobObj.push(new WorkExp(obj));
@@ -153,3 +171,6 @@ $('.nav-section img').on('click touchStart',function(){
   $('.nav-section').find('ul').slideToggle();
 } else { $('.nav-section').show(); }
 })
+
+module.schoolObj = schoolObj;
+}(window))
