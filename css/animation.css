@@ -1,12 +1,13 @@
 .petals1 {
   position: relative;
+
   width: 20px;
   height: 20px;
   margin: 15px;
   border-top-right-radius: 50%;
   border-bottom-left-radius: 50%;
   background-color: rgba(131, 193, 89, 0.6);
-  z-index: 9999999;
+  z-index: 1111;
 /*-webkit-animation-fill-mode: forward;*/
 -webkit-animation-name: ride;
 -webkit-animation-duration: 18s;
@@ -18,4 +19,137 @@
   0%{-webkit-transform: translate(-50px,-200px) rotate(80deg);}
   /*50%{-webkit-transform: translate(150px,100px) rotate(40deg);}*/
   100%{-webkit-transform: translate(300px, 1700px) ;}
+}
+
+.petals2 {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  margin: 15px;
+  border-top-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  background-color: rgba(131, 193, 89, 0.6);
+  z-index: 2222;
+/*-webkit-animation-fill-mode: forward;*/
+-webkit-animation-name: ride2;
+-webkit-animation-duration: 18s;
+-webkit-animation-timing-function: ease-in;
+-webkit-animation-iteration-count: 1;
+}
+
+@-webkit-keyframes ride2 {
+  0%{-webkit-transform: translate(500px,-50px) rotate(-80deg);}
+  /*50%{-webkit-transform: translate(150px,100px) rotate(40deg);}*/
+  100%{-webkit-transform: translate(300px, 1700px) ;}
+}
+
+.petals3 {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  margin: 15px;
+  border-top-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  background-color: rgba(131, 193, 89, 0.6);
+  z-index: 3333;
+/*-webkit-animation-fill-mode: forward;*/
+-webkit-animation-name: ride3;
+-webkit-animation-duration: 18s;
+-webkit-animation-timing-function: ease-in;
+-webkit-animation-iteration-count: 1;
+}
+
+@-webkit-keyframes ride3 {
+  0%{-webkit-transform: translate(1000px,-50px) rotate(80deg);}
+  /*50%{-webkit-transform: translate(150px,100px) rotate(40deg);}*/
+  100%{-webkit-transform: translate(500px, 1700px) ;}
+}
+
+.petals5 {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  margin: 15px;
+  border-top-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  background-color: rgba(131, 193, 89, 0.6);
+  z-index: 4444;
+/*-webkit-animation-fill-mode: forward;*/
+-webkit-animation-name: ride5;
+-webkit-animation-duration: 18s;
+-webkit-animation-timing-function: ease-in;
+-webkit-animation-iteration-count: 1;
+}
+
+@-webkit-keyframes ride5 {
+  0%{-webkit-transform: translate(600px,-50px) rotate(-80deg);}
+  /*50%{-webkit-transform: translate(150px,100px) rotate(40deg);}*/
+  100%{-webkit-transform: translate(600px, 1700px) ;}
+}
+
+.petals6 {
+  position: absolute;
+
+  width: 20px;
+  height: 20px;
+  margin: 15px;
+  border-top-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  background-color: rgba(131, 193, 89, 0.6);
+  z-index: 5555;
+/*-webkit-animation-fill-mode: forward;*/
+-webkit-animation-name: ride6;
+-webkit-animation-duration: 18s;
+-webkit-animation-timing-function: ease-in;
+-webkit-animation-iteration-count: 1;
+}
+
+@-webkit-keyframes ride6 {
+  0%{-webkit-transform: translate(900px,-50px) rotate(-80deg);}
+  /*50%{-webkit-transform: translate(150px,100px) rotate(40deg);}*/
+  100%{-webkit-transform: translate(350px, 1700px) ;}
+}
+
+.petals7 {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  margin: 15px;
+  border-top-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  background-color: rgba(131, 193, 89, 0.6);
+  z-index: 6666;
+/*-webkit-animation-fill-mode: forward;*/
+-webkit-animation-name: ride7;
+-webkit-animation-duration: 18s;
+-webkit-animation-timing-function: ease-in;
+-webkit-animation-iteration-count: 1;
+}
+
+@-webkit-keyframes ride7 {
+  0%{-webkit-transform: translate(900px,-50px) rotate(-80deg);}
+  /*50%{-webkit-transform: translate(150px,100px) rotate(40deg);}*/
+  100%{-webkit-transform: translate(350px, 1700px) ;}
+}
+
+.petals8 {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  margin: 15px;
+  border-top-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  background-color: rgba(131, 193, 89, 0.6);
+  z-index: 6666;
+/*-webkit-animation-fill-mode: forward;*/
+-webkit-animation-name: ride8;
+-webkit-animation-duration: 18s;
+-webkit-animation-timing-function: ease-in;
+-webkit-animation-iteration-count: 1;
+}
+
+@-webkit-keyframes ride8 {
+  0%{-webkit-transform: translate(60px,-50px) rotate(80deg);}
+  /*50%{-webkit-transform: translate(150px,100px) rotate(40deg);}*/
+  100%{-webkit-transform: translate(150px, 1700px) ;}
 }
