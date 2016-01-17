@@ -123,9 +123,9 @@ $('.nav-section img').on('click touchStart',function(){
 })
 
 function stickyHeaders(){
-  var $stickyHeader = $('body header');
-  var $stickableWindow = $(document).scrollTop();
-  $(document).on('scroll', function(){
+  var $stickyHeader = $('header');
+  var $stickableWindow = $(window).scrollTop();
+  $(window).on('scroll', function(){
     if($stickableWindow > 0){
     $stickyHeader.attr('id','sticky');
     console.log('here here here')
