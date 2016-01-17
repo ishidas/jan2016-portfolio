@@ -10,7 +10,7 @@ header {
 
 #sticky {
   position: fixed;
-
+  display: block;
 }
 
 section img {

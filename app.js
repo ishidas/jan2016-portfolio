@@ -123,14 +123,15 @@ $('.nav-section img').on('click touchStart',function(){
 })
 
 function stickyHeaders(){
-  var $stickyH1 = $('h1');
-  var $stickableWindow = $(window).scrollTop();
-  $('window').on('scroll', function(){
+  var $stickyHeader = $('body header');
+  var $stickableWindow = $(document).scrollTop();
+  $(document).on('scroll', function(){
     if($stickableWindow > 0){
-    $stickyH1.attr('id','sticky');
+    $stickyHeader.attr('id','sticky');
     console.log('here here here')
   } else {
-    $stickyH1.attr('id','');
+    $stickyHeader.attr('id','');
+    console.log('sticky not working');
   }
   })
 }
