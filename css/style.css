@@ -10,7 +10,7 @@ header {
 
 #sticky {
   position: fixed;
-  
+
 }
 
 section img {
@@ -62,5 +62,8 @@ article.edutemplate {
   }
   header {
     background-color: rgba(255, 255, 255, 0.33);
+  }
+  .petals2,.petals3,.petals5,.petals6,.petals7,.petals9 {
+    display: none;
   }
 }
