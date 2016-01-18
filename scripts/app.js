@@ -40,7 +40,7 @@ WorkExp.prototype.displayHtml = function(){
 //setting portfolioingo in localStorage
 
 function update (){
-  $.getJSON('portfolioinfo.json',function(data, message, xhr){
+  $.getJSON('data/portfolioinfo.json',function(data, message, xhr){
     localStorage.schoolRaw = JSON.stringify(data);
     localStorage.etag = xhr.getResponseHeader('eTag');
     console.log(localStorage.etag);
@@ -68,7 +68,7 @@ function checkUpdate (){
           }
   });
 }
-checkUpdate();
+// checkUpdate();
 
 
 
@@ -137,5 +137,6 @@ function stickyHeaders(){
 }
 stickyHeaders();
 
-module.schoolObj = schoolObj;
-}(window))
+window.schoolObj = schoolObj;
+window.checkUpdate = checkUpdate;
+})(window)
