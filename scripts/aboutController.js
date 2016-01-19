@@ -2,7 +2,8 @@
   var aboutController = {};
   checkUpdate();
   aboutController.about = function(){
-    $('#home').hide();
+    $('body section').hide();
+    $('#edu').show();
   }
   window.aboutController = aboutController;
 })(window);

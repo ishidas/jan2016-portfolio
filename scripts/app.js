@@ -105,17 +105,17 @@ function renderLocalSchoolData () {
 //   $('#workjob').append(b.displayHtml());
 // })
 
-$('section[id!="home"]').click().hide();
+// $('section[id!="home"]').click().hide();
 //add Tabs and 'Click' events
-var $sectionHome = $('.nav-section');
-  $sectionHome.on('click touchStart','li',function(event){
-    event.preventDefault();
-    $('section').hide();
-    $('#' + $(this).data('content')).show();
-    $('.' + $(this).data('content')).show();
-  console.log($(this).data('content'));
-
-  })
+// var $sectionHome = $('.nav-section');
+  // $sectionHome.on('click touchStart','li',function(event){
+  //   event.preventDefault();
+  //   $('section').hide();
+  //   $('#' + $(this).data('content')).show();
+  //   $('.' + $(this).data('content')).show();
+  // console.log($(this).data('content'));
+  //
+  // })
 $('.nav-section img').on('click touchStart',function(){
   if($(window).width() < 640){
   $('.nav-section').find('ul').slideToggle();
