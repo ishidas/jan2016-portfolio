@@ -123,16 +123,12 @@ $('.nav-section img').on('click touchStart',function(){
 })
 
 function stickyHeaders(){
-  var $stickyHeader = $('header');
+
+  var $stickyHeader = $('body > header');
   var $stickableWindow = $(window).scrollTop();
   $(window).on('scroll', function(){
-    if($stickableWindow > 0){
     $stickyHeader.attr('id','sticky');
     console.log('here here here')
-  } else {
-    $stickyHeader.attr('id','');
-    console.log('sticky not working');
-  }
   })
 }
 stickyHeaders();
