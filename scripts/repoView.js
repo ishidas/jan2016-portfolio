@@ -7,7 +7,7 @@
   var render = function(repo){
     var section = document.createElement('section');
     console.log(repo);
-    $(section).html('<p>' + repo + '</p>');
+    $(section).html('<p>' + repo.name + '</p>');
     console.log(section);
     return section;
   };
