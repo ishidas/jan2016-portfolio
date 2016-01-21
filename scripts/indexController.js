@@ -3,7 +3,7 @@
   indexController.index = function (){
     $('body section').hide();
     $('#home').show();
-  }
+  };
 
-window.indexController = indexController;
+  window.indexController = indexController;
 })(window);
