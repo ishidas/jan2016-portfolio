@@ -12,30 +12,24 @@
     this.status = sth.status;
   }
 
-  //Generating School Info
-  Schools.prototype.toHTML = function (){
-    var $newContentBox = $('article.edutemplate').clone();
-    $newContentBox.find('h4').html('School Name: '+ schoolObj.a.schoolName).attr('data-name','eduSchoolName');
-    $newContentBox.removeClass('edutemplate');
-    $newContentBox.find('[data-major] span').text(this.major);
-    $newContentBox.find('[data-degree] span').text(this.degree);
-    $newContentBox.find('[data-status] span').text(this.status);
-    $newContentBox.find('.edutemplate address a').attr('href',this.schoolLink);
-    return $newContentBox;
-  };
-
   function WorkExp (opt){
     this.companyName = opt.companyName;
     this.companyLink = opt.companyLink;
     this.experience = opt.experience;
   }
 
+  //Generating School Info
+  Schools.prototype.toHTML = function (){
+    var $appTemplate2 = $('#entry-template2').text();
+    var compileTemplate2 = Handlebars.compile($appTemplate2);
+    return compileTemplate2(this);
+  };
+
   WorkExp.prototype.displayHtml = function(){
     var appTemplate = $('#entry-template').text();
     var compileTemplate = Handlebars.compile(appTemplate);
     return compileTemplate(this);
   };
-
 
   //setting portfolioingo in localStorage
 
