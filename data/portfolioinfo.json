@@ -1,14 +1,14 @@
 [
   {
-    "schoolName": "Brigham Young University Hawaii",
+    "schoolName": "School Names1",
     "degree": "BS",
-    "major": "Hospitality and Tourism Management",
-    "schoolLink": "http://byuh.edu/",
+    "major": "I got a degree!!!",
+    "schoolLink": "https://en.wikipedia.org/wiki/School",
     "status": "Graduated"
   },
   {
-    "schoolName": "Code Fellows",
-    "degree": "Certificate",
+    "schoolName": "School Name2",
+    "degree": "Do I get another degree??",
     "major": "Programming",
     "schoolLink": "https://www.codefellows.org/",
     "status": "Currently Enrolled"
