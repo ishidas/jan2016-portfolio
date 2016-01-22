@@ -33,20 +33,20 @@
 
   //setting portfolioingo in localStorage
 
-  function update (){
+  Schools.update = function(){
     $.getJSON('data/portfolioinfo.json',function(data, message, xhr){
-      localStorage.schoolRaw = JSON.stringify(data);
+      localStorage.setItem('schoolRaw', JSON.stringify(data));
       localStorage.etag = xhr.getResponseHeader('eTag');
       renderLocalSchoolData();
     });
     renderToHtml();
-  }
+  };
 
 
   function checkUpdate (){
     $.ajax({
       type: 'HEAD',
-      url:  'portfolioinfo.json',
+      url:  'data/portfolioinfo.json',
       complete: function(xhr){
         var eTag = xhr.getResponseHeader('eTag');
         if(localStorage.etag !== eTag){
