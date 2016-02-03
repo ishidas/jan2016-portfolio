@@ -1,8 +1,5 @@
 (function(module){
-
   var schoolObj = [];
-  var jobObj = [];
-  var footerFun = [1,9,8,4,0,5,0,8];
 
 // school constructor
   function Schools (sth){
@@ -14,94 +11,68 @@
     this.status = sth.status;
   }
 
-  // function WorkExp (opt){
-  //   this.companyName = opt.companyName;
-  //   this.companyLink = opt.companyLink;
-  //   this.experience = opt.experience;
-  // }
-
-  //Generating School Info
+  //Rendering school info using handlebars.js
   Schools.prototype.templateSchool = function (){
-    console.log('here it is!');
     var $appTemplate2 = $('#entry-template2').text();
     var compileTemplate2 = Handlebars.compile($appTemplate2);
     var contentPlusTemplate = compileTemplate2(this);
-    console.log(contentPlusTemplate);
     $('#edu').append(contentPlusTemplate);
   };
 
-  // WorkExp.prototype.displayHtml = function(){
-  //   var appTemplate = $('#entry-template').text();
-  //   var compileTemplate = Handlebars.compile(appTemplate);
-  //   return compileTemplate(this);
-  // };
-
-  //setting portfolioinfo in localStorage
-  Schools.setGetObjArray = function(){
+  //setting portfolioinfo in localStorage, and parsing that out and push to SchoolObj array.
+  Schools.setLocalStorage = function (){
     $.getJSON('data/portfolioinfo.json',function(data, message, xhr){
       localStorage.setItem('schoolRaw', JSON.stringify(data));
       localStorage.etag = xhr.getResponseHeader('eTag');
     })
-      .done(function(){
-        var getBackShoolObj = JSON.parse(localStorage.getItem('schoolRaw'));
-        getBackShoolObj.map(function(x){
-          schoolObj.push(x);
-        });
-      });
+    .done(function(){
+      Schools.pushToArray();
+    });
   };
 
-  Schools.setGetObjArray();
+  // Schools.setLocalStorage();
+  Schools.pushToArray = function (){
+    var getBackShoolObj = JSON.parse(localStorage.getItem('schoolRaw'));
+    getBackShoolObj.map(function(x){
+      schoolObj.push(x);
+    });
+  };
 
-  // Schools.renderLocalSchoolData = function () {
-  //   var getBackShoolObj = JSON.parse(localStorage.getItem('schoolRaw'));
-  //   console.log(getBackShoolObj);
-  //   getBackShoolObj.map(function(x){
-  //     console.log(x);
-  //     schoolObj.push(x);
-  //     console.log(schoolObj);
-  //   });
-  //
-  // };
-  // Schools.renderLocalSchoolData();
-
-  $.ajax({
-    type: 'HEAD',
-    url:  'data/portfolioinfo.json',
-    complete: function(xhr){
-      var eTag = xhr.getResponseHeader('eTag');
-      console.log(eTag);
-      if(localStorage.etag !== eTag){
-        Schools.createNewObj();
-      } else {
-          // renderLocalSchoolData();
-        if(schoolObj.length > 1){
+  //checking for update comparing eTag
+  function checkUpdate (){
+    $.ajax({
+      type: 'HEAD',
+      url:  'data/portfolioinfo.json',
+      complete: function(xhr){
+        var eTag = xhr.getResponseHeader('eTag');
+        if(localStorage.etag !== eTag){
+          Schools.setLocalStorage();
+          if(schoolObj.length < 1){
+            setTimeout(Schools.createNewObj, 500);
+            Schools.createNewObj();}
+        } else {
+          Schools.pushToArray();
           Schools.createNewObj();
-
-        };
+        }
       }
-    }
-  });
-
+    }); //end of ajax call
+  }; //end of checkUpdate function
 
 // create new school objects
   Schools.createNewObj = function(){
     schoolObj.forEach(function(obj){
       var newObj = new Schools(obj);
-      console.log(newObj);
       return newObj.templateSchool();
     });
   };
 
-
-
-
-
-// nav bar toggle
+// navbar toggle
   $('.nav-section img').on('click touchStart',function(){
     if($(window).width() < 640){
       $('.nav-section').find('ul').slideToggle();
     } else { $('.nav-section').show(); }
   });
+
 // sticky header
   function stickyHeaders(){
     var $stickyHeader = $('body > header');
@@ -112,6 +83,7 @@
   }
   stickyHeaders();
 
-  window.schoolObj = schoolObj;
+  module.Schools = Schools;
+  module.checkUpdate = checkUpdate;
 
 })(window);
