@@ -11,26 +11,25 @@
     <link rel="stylesheet" type="text/css" href="css/layout.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/animation.css">
+    <!-- handlebars template for work experience -->
     <script id="entry-template" type="text/x-handlebars-template">
       <div class="work">
         <h4 id="eduname">{{companyName}}</h4>
         <address><a href="{{companyLink}}">{{companyName}}</a></address>
         <p>{{{experience}}}</p>
       </div>
-
-
     </script>
+    <!-- handlebars template for schools -->
     <script id="entry-template2" type="text/x-handlebars-template">
-      <section id="edu" data-content="edusection">
-        <article class="edutemplate">
-          <h4 id="eduname" data-name="eduSchoolName">School Name: {{schoolName}}</h4>
-          <p data-major="eduMajor">Major: {{major}}</p>
-          <p data-degree="eduDegree">Degree: {{degree}}</p>
-          <p data-status="eduStatus">Status: {{status}}</p>
-          <address><a href="{{schoolLink}}">School Web Site Link</a></address>
-          <hr>
-        </article>
-      </section>
+      <article class="edutemplate">
+        <h4 id="eduname" data-name="eduSchoolName">School Name: {{schoolName}}</h4>
+        <p data-major="eduMajor">Major: {{major}}</p>
+        <p>Duration: {{duration}}</p>
+        <p data-degree="eduDegree">Degree: {{degree}}</p>
+        <p data-status="eduStatus">Status: {{status}}</p>
+        <address><a href="{{schoolLink}}">School Web Site Link</a></address>
+        <hr>
+      </article>
     </script>
   </head>
   <body>
@@ -59,14 +58,6 @@
       <hr>
     </header>
     <section id="edu" data-content="edusection">
-      <article class="edutemplate">
-        <h4 id="eduname" data-name="eduSchoolName">School Name: <span></span></h4>
-        <p data-major="eduMajor">Major: <span></span></p>
-        <p data-degree="eduDegree">Degree: <span></span></p>
-        <p data-status="eduStatus">Status: <span></span></p>
-        <address><a href="">School Web Site Link</a></address>
-        <hr>
-      </article>
     </section>
     <section id="home">
       <img id="first-img" src="img/sakura.jpg" alt="image of cherry blossom">

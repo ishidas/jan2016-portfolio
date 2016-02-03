@@ -1,10 +1,10 @@
 (function(module){
   var aboutController = {};
-  checkUpdate();
+  // checkUpdate();
   aboutController.about = function(){
     $('body section').hide();
     $('#edu').show();
-    repoData.grabRepo(repoView.index());
+    // repoData.grabRepo(repoView.index());
   };
   window.aboutController = aboutController;
 })(window);
