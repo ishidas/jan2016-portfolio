@@ -1,4 +1,4 @@
-// page.base('');
+// page.base(''); this linw 1 breaks due to bug
 page('/', indexController.index);
 page('/about', aboutController.about);
 page('/gallery',galleryController.gallery);
