@@ -6,4 +6,4 @@
   };
 
   window.galleryController = galleryController;
-})(windoe);
+})(window);
