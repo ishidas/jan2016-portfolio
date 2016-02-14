@@ -16,7 +16,7 @@
       .done(callback);
   };
 
-  repoData.grabRepo();
+  // repoData.grabRepo();
 
   repoData.with = function(attr){
     return repoData.all.filter(function(repo){
