@@ -67,7 +67,9 @@
 Cheesecake lollipop tootsie roll sugar plum macaroon macaroon chocolate bar wafer. Apple pie fruitcake sugar plum. Liquorice pie biscuit tart croissant. Jujubes croissant danish marzipan chocolate pie halvah. Cake danish soufflé cotton candy muffin jujubes. Jelly-o brownie jujubes sugar plum cheesecake icing sweet roll. Bear claw chocolate cake apple pie cotton candy chocolate cake. Fruitcake macaroon tiramisu icing tart brownie cotton candy bear claw biscuit. Dragée sesame snaps pastry.</p>
     </section>
     <section id="gallerytab" class="photo-gallery"></section>
-    <section id="experience"></section>
+    <section id="experience">
+      <div id="map"></div>
+    </section>
     <!-- <article class="jobtemplate">
     </article> -->
     <footer>
@@ -80,6 +82,7 @@ Cheesecake lollipop tootsie roll sugar plum macaroon macaroon chocolate bar wafe
     </footer>
     <!-- <script src="portfolioinfo.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
 
     <script src="scripts/app.js"></script>
@@ -92,6 +95,11 @@ Cheesecake lollipop tootsie roll sugar plum macaroon macaroon chocolate bar wafe
     <script src="scripts/galleryController.js"></script>
     <script src="scripts/experienceController.js"></script>
     <script src="scripts/indexController.js"></script>
+    <script src="scripts/gmap.js"></script>
     <script src="scripts/routes.js"></script>
+    <!-- gmap initialization -->
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=visualization"></script>
+    <script type="text/javascript">google.maps.event.addDomListener(window, 'load', Gmap.initMap);</script>
   </body>
+
 </html>

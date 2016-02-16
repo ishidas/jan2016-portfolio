@@ -28,6 +28,19 @@ ul li {
   margin-right: 2em;
 }
 
+#experience {
+  height: 35em;
+  width: 75%;
+  margin: 30% auto;
+  padding: 0;
+  z-index: -999999;
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+}
+
 footer ul {
   margin-bottom: 0%;
 }
@@ -62,5 +75,12 @@ footer ul li {
   }
   .petals2,.petals3,.petals5,.petals6,.petals7,.petals9 {
     display: none;
+  }
+  #experience {
+    height: 25em;
+    width: 75%;
+    margin: 60% auto;
+    padding: 0;
+    z-index: -999999;
   }
 }

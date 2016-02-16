@@ -1,9 +1,10 @@
-(function(){
+(function(module){
   var experienceController = {};
+
   experienceController.experience = function (){
     $('body section').hide();
     $('#experience').show();
   };
 
-  window.experienceController = experienceController;
+  module.experienceController = experienceController;
 })(window);
