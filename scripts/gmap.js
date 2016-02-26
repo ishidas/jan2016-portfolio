@@ -8,8 +8,8 @@
     var comcast = {lat:47.625268, lng:-122.357668};
 
     var map = new google.maps.Map(document.getElementById('map'),{
-      center: {lat: 21.458481, lng: -158.016223},
-      zoom: 2
+      center: {lat:21.292368, lng:-157.839358},
+      zoom: 3
     });
     var marker = new google.maps.Marker({
       position: koolina,

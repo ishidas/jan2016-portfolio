@@ -1,6 +1,6 @@
-/*header {
-  height: 17em;
-}*/
+#home p {
+  margin: auto 4em;
+}
 
 #icon-burger {
   display: inline-block;
@@ -26,6 +26,7 @@ figcaption {
 
 ul li {
   margin-right: 2em;
+  list-style: none;
 }
 
 #experience {
@@ -69,6 +70,9 @@ footer ul li {
 @media only screen and (max-width: 640px) {
   .nav-section ul {
     display: none;
+  }
+  .nav-section ul li {
+    list-style: none;
   }
   header {
     background-color: rgba(255, 255, 255, 0.33);
