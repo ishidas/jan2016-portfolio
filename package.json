@@ -1,0 +1,22 @@
+{
+  "name": "jan2016-portfolio",
+  "version": "1.0.0",
+  "description": "my portfolio with actual info",
+  "main": "githubToken.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ishidas/jan2016-portfolio.git"
+  },
+  "author": "sawako.ishida1@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ishidas/jan2016-portfolio/issues"
+  },
+  "homepage": "https://github.com/ishidas/jan2016-portfolio#readme"
+}
