@@ -1,0 +1,18 @@
+[
+  {
+    "schoolName": "Brigham Young University Hawaii",
+    "duration": "Sep 2003 - May 2008",
+    "degree": "BS",
+    "major": "Hospitality and Tourism Management",
+    "schoolLink": "http://byuh.edu/",
+    "status": "Graduated"
+  },
+  {
+    "schoolName": "Code Fellows",
+    "duration": "Nov 2015 - Present",
+    "degree": "non-degree program",
+    "major": "Full-Stack JavaScript Development",
+    "schoolLink": "https://www.codefellows.org/",
+    "status": "Currently Enrolled"
+  }
+]
